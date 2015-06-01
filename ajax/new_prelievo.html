@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Interventi</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+    
+<body>
+        
+
+<div id="NuovaRigaPrelievo" data-role="page" data-dialog="true" data-close-btn="right">
+
+	<div data-role="header" data-position="fixed">
+	  <h1>Nuovo Prelievo</h1>
+	</div>
+<hr/>
+	<div data-role="content">
+    Prova:
+    <select name="IDProvaNL" id="IDProvaNL"></select>
+    Quantità :<input name="qty" id="qty" type="number">
+    <input type="button" id="feedback_send" value="Inserisci"  data-inline="true"  onClick="save_nuovo_prova()"/>
+           
+        		
+
+</div>
+
+<script>
+$(document).on('pageinit', function() {
+var id = localStorage["cal_id"];
+	populate_select_tipoprova(IDProvaNL);
+});
+
+
+
+function populate_select_tipoprova(select_name){
+	
+	    var self = this;
+        this.db = window.openDatabase("chriva_mobile_v3", "1.0", "Sync Demo DB", 200000);
+		
+		      this.db.transaction(
+            function(tx) {
+		tx.executeSql('SELECT IDProva, Prova FROM tab_prove WHERE Prova <>"" Order By Prova ',
+  [],
+  function(tx,results){
+    var len = results.rows.length;
+	 $('#IDProvaNL').append('<option value="" selected ></option>');
+  
+    for (var i=0; i<len; i++){
+      $('#IDProvaNL').append('<option value="'+results.rows.item(i).IDProva+
+        '" >'+results.rows.item(i).Prova+'</option>');
+    }
+   
+	$("#IDProvaNL").selectmenu('refresh', true);
+  }
+
+);
+		
+			}
+			);
+	}
+	
+	
+	function check_modulo(){
+		var idprova = $("#IDProvaNL").val();
+		var qty = $("#qty").val();
+		
+	
+		if(idprova==''){
+				alert('Selezionare una prova');
+				return false;
+				}
+				
+			if(qty==''){
+				alert('Inserire una quantita');
+				return false;
+				}	
+		if(!(isNumeric(qty))){
+			alert('Inserire un valore numerico per la quantita');
+			return false;
+			
+			}
+			
+		else return true;
+		}
+		
+		
+	function save_nuovo_prova(){
+		var idprova = $("#IDProvaNL").val();
+		
+		var arr = "";
+		
+		arr = find_singolo_dato('tab_prove','ARR_PROVE','IDProva',idprova);
+		alert('trovato:'+arr.toString());
+		var qty = $("#qty").val();
+	if(check_modulo()){
+				insert_dett_prove(idprova,qty);
+		   		setTimeout(function(){
+               	$('[data-role=dialog]').dialog( "close" );
+            },20);
+	}
+	
+	}
+
+
+
+</script>
+
+</body>
+
+</html>

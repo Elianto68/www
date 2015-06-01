@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Interventi</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+    
+<body>
+        
+
+<div id="DettRigaPrelievo" data-role="page" data-add-back-btn="true" >
+
+	<div data-role="header" data-position="fixed">
+	  <h1><span id="titolo_dettaglio"></span></h1>
+	</div>
+
+	<div data-role="content" style="background:#FFF">
+     
+      <p style="width:90%; ">
+    <label for="IDTipoProdotto"><strong>Tipo Prodotto:</strong></label>
+ <select name="IDTipoProdotto" id="IDTipoProdotto" onchange="update_dett(this.value,'IDTipoProdotto');">
+   <option value="" >--seleziona--</option>
+ </select> 
+    
+
+    <label for="Note"><strong>Descrizione</strong>:</label>  
+    <textarea name="Note" id="Note" cols="50" rows="5"  onBlur="update_dett (this.value,'Note');" ></textarea>
+
+    <label for="Lotto"><strong>Lotto</strong>:</label>
+    <input type="text" name="Lotto" id="Lotto"  onBlur="update_dett(this.value,'Lotto');" >
+    <label for="TempC"><strong>T.C.:</strong></label>
+    <input type="text" name="TempC" id="TempC"  onBlur="update_dett(this.value,'TempC');" >
+    <label for="Conservabile"><strong>Conservabile</strong>:</label>
+    <input type="text" name="Conservabile" id="Conservabile"  onBlur="update_dett(this.value,'Conservabile');" >
+ 
+     <strong>
+     <label for="fullname">Stato di lavorazione:</label>
+     </strong>
+    <select name="IdStadioLavorazione" id="IdStadioLavorazione" onchange="update_dett(this.value,'IdStadioLavorazione');">
+      <option value="" >--seleziona--</option>
+    </select>
+
+    
+    <label for="NoteSito"><strong>Sito di Campionamento:</strong></label>
+   
+    
+    <textarea name="NoteSito" id="NoteSito" cols="50" rows="5" onBlur="update_dett(this.value,'NoteSito');"></textarea>
+
+    <label for="IDSuperficie"><strong>Superficie:</strong></label>
+      <select name="IDSuperficie" id="IDSuperficie" onchange="update_dett(this.value,'IDSuperficie');" >
+       <option value="" >--seleziona--</option>
+      </select>    		
+      <input type="hidden" name="Finito" id="Finito">
+      </p>
+</div>
+
+<div data-role="footer" data-position="fixed">
+
+<div data-role="navbar">
+            <ul>
+               
+                <li><a href="#" onClick="canc_dett();" data-icon="delete">Cancella</a></li>
+                <li><a href="#" onClick="chiudi_dett_riga();" data-icon="home">Chiudi riga</a> </li>
+            </ul>
+        </div><!-- /navbar -->
+</div>
+
+
+<script>
+
+
+function check_dett_riga(){
+	
+	var IDTipoProdotto 		= $('#IDTipoProdotto').val();
+	var Note 				= $('#Note').val();
+	var Lotto		 		= $('#Lotto').val();
+	var TempC 				= $('#TempC').val();
+	var IdStadioLavorazione = $('#IdStadioLavorazione').val();
+	var NoteSito 			= $('#NoteSito').val();
+	var IDSuperficie 		= $('#IDSuperficie').val();
+	
+	
+	}
+	
+	
+
+
+function chiudi_dett_riga(){
+	
+	
+	  update_dett('1','Finito');
+	
+	$('[data-role=dialog]').dialog( "close" );
+	
+	
+	}
+	
+		
+function chiudi_dett(){
+	
+	
+	
+	
+	$('[data-role=dialog]').dialog( "close" );
+	
+	
+	}
+	
+function canc_dett(){
+	if(confirm('Confermi la cancellazione della riga ? ')){
+	
+	var iddettc = localStorage["iddettc"];
+	crud('DELETE', 'ts_Calendario_Prodotto', ' ', 'IDDettC',iddettc, ' ')
+		
+		
+		   setTimeout(function(){
+               $('[data-role=dialog]').dialog( "close" );
+            },20);
+		
+	}
+	}
+
+   
+
+</script>
+
+</body>
+
+</html>

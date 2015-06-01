@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Interventi</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+</head>
+    
+<body>
+        
+
+<div id="NuovaRigaPrelievo" data-role="page" data-add-back-btn="true" >
+
+	<div data-role="header" data-position="fixed">
+	  <h1>Nuovo Modulo</h1>
+	</div>
+
+	<div data-role="content">
+	  <input type="button" id="feedback_send" value="Inserisci"  data-inline="true"  onClick="save_nuovo_modulo()"/>
+           
+        		
+
+</div>
+
+<script>
+
+
+	
+function save_nuovo_modulo(){
+	
+	
+		insert_dett_prove(idprova,qty);
+		   setTimeout(function(){
+			   $('#prelievi_collapsible').trigger('expand');
+               $('[data-role=dialog]').dialog( "close" );
+            },20);
+		
+	
+	}
+
+    /*$(document).on('pagebeforeshow', '#index', function(){ 
+        $(document).on('click', '#feedback_send', function(){ 
+		
+            setTimeout(function(){
+                $( "#myPopup" ).popup( "close" );
+            },1);
+        });    
+    });
+	*/
+
+</script>
+
+</body>
+
+</html>

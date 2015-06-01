@@ -1,0 +1,832 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>CHRIVA Mobile</title>
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+      <link rel="stylesheet" href="_assets/css/jqm-demos.css">
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+       <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
+      <script src="js/jquery.js"></script>
+      <script src="_assets/js/index.js"></script>
+      <script src="js/jquery.mobile-1.4.5.min.js"></script>
+      <style>
+	  
+	  .ui-dialog.dialog-actionsheet .ui-dialog-contain {
+			margin-top: 0;
+		}
+		
+		.ui-dialog-background {
+	opacity: 0.5;
+	display: block !important;
+	-webkit-transition: opacity 0.5s ease-in;
+}
+ 
+.ui-dialog-background.pop.in {
+	opacity: 1;
+	-webkit-transition: opacity 0.5s ease-in;
+}
+ 
+.ui-dialog {
+	min-height: 100% !important;
+	background: transparent !important;
+}
+
+
+  #canvasContainer {
+      position:relative;
+      border: 2px solid #888888;
+      background-color: #EEEEEE;
+      border-radius: 25px;
+      width:100%;	
+      height: 200px;
+  }
+  
+  #signature {
+    height: 200px;
+    width: 100%;
+  }
+  #signature2 {
+   
+  }
+  
+  
+  .conn_ok{
+      
+      border:solid 2px #000033; 
+      color:#FFF; 
+      background-color:#063;
+      padding:3px;
+      }
+      
+      
+  .conn_no{
+      border:solid 2px #000033; 
+      color:#FFF; 
+      background-color:#C00;
+      padding:3px;
+      
+      }	
+  
+  </style>
+  </head>
+  <body>
+  
+  
+  <!-- INIZIO PAGINA MAIN INDEX  -->
+  <div data-role="page" id="index" class="jqm-demos jqm-home">
+  
+  
+  
+    <div data-role="header" class="jqm-header">
+          
+          <a href="#" class="jqm-navmenu-link ui-nodisc-icon ui-alt-icon ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" data-role="button" role="button">Menu</a>
+          <h2><img src="_assets/img/chriva-logo.png" alt="Chriva Mobile"></h2>
+     
+      
+      </div><!-- /header -->
+  
+      <div role="main" class="ui-content jqm-content">
+  
+      
+  
+ 
+  
+          <div class="ui-grid-a ui-responsive">
+              <div class="ui-block-a">
+                  <div class="jqm-block-content" id="block_login">
+                      <h3>Login</h3>
+  
+  <div class="ui-field-contain">
+    <form id="check-login" class="ui-body ui-body-a ui-corner-all" data-ajax="false">
+    <input type="text" name="login-1" id="login-1" placeholder="Login" value="">
+     <input type="password" data-clear-btn="true" name="password-1" id="password-1" placeholder="Password" value="" autocomplete="off">
+<input type="button" value="Entra" id="btn_login"  data-theme="a">
+  <input name="Cosa" type="hidden" value="loginform" />
+</form>
+</div>
+
+</div>
+<div class="jqm-block-content" id="block_menu">
+  
+   <h3>Prelevatore</h3>
+   
+                      <p id="id_op"></p>
+                      <p id="nome_op"></p>
+                      <p id="email_op"></p>
+                     
+                     
+                  </div>
+              </div>
+          </div>
+  
+      </div><!-- /content -->
+      
+      
+      
+      
+      
+      
+      
+          <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+              <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+  <li data-filtertext="demos homepage" data-icon="home"><a href=".././">Home</a></li>
+   <li><a  href="#interventi">Interventi pianificati</a><span class="ui-li-count" id="count-intpianificati">0</span></li>
+           <li><a href="interventi.html">Interventi effettuati</a><span class="ui-li-count" id="count-inteffettuati">0</span></li>
+           <li ><a  href="#listaclienti">Clienti</a><span class="ui-li-count" id="count-clienti">0</span></li>
+          
+           
+           <li><a data-ajax="false" href="#manutenzione" >Manutenzione</a></li>
+           <li><a  href="syncro.html" >Sincro</a></li>
+  
+  
+               </ul>
+          </div><!-- /panel -->
+  
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      <!-- /navbar -->
+          <p>Chriva Mobile system  <span class="jqm-version"></span></p>
+          <p>Copyright TESLA AI S.r.l</p>
+      </div><!-- /footer -->
+      
+      
+      <!-- /panel -->
+  
+  <div data-role="panel" id="rightpanel1" data-position="right" data-display="overlay"  class="ui-panel ui-panel-position-right ui-panel-display-reveal ui-body-b ui-panel-animate ui-panel-closed">
+
+        <div class="ui-panel-inner"><h3>Right Panel: Reveal</h3><p>This panel is positioned on the right with the reveal display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p><p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p><a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a></div>
+        
+        
+        
+
+	</div>
+  </div><!-- /page -->
+  
+  
+  
+  <!-- FINE PAGINA MAIN INDEX  -->
+  
+  
+  
+  <!-- INIZIO PAGINA LISTA INTERVENTI  -->
+  <!-- /page -->
+  <div data-role="page" id="interventi" class="jqm-demos jqm-home">
+  
+      <div data-role="header" class="jqm-header">
+          <h2><img src="_assets/img/chriva-logo.png" alt="jQuery Mobile"></h2>
+         
+      <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a></div><!-- /header -->
+  
+      <div role="main" class="ui-content jqm-content">
+  
+          <h1>INTERVENTI </h1>
+  
+          
+  
+  
+  
+  
+  <div data-role="content">
+           <ul id="worksList" data-role="listview" data-filter="true"></ul>
+           
+             <a href="#" onclick="sync_to_server('tutti');" id="btn_sync_all"  class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all ui-btn-inline"  >Sincronizza i moduli chiusi </a>
+             
+      </div>
+      </div><!-- /content -->
+      
+      
+      
+      
+   
+      
+          <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+              <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+  <li data-filtertext="demos homepage" data-icon="home"><a href=".././">Home</a></li>
+   <li><a  href="#interventi">Interventi pianificati</a><span class="ui-li-count" id="count-intpianificati">0</span></li>
+           <li><a href="interventi.html">Interventi effettuati</a><span class="ui-li-count" id="count-inteffettuati">0</span></li>
+           <li ><a  href="#listaclienti">Clienti</a><span class="ui-li-count" id="count-clienti">0</span></li>
+          
+           
+           <li><a data-ajax="false" href="#manutenzione" >Manutenzione</a></li>
+           <li><a  href="syncro.html" >Sincro</a></li>
+  
+  
+               </ul>
+          </div><!-- /panel -->
+  
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      <!-- /navbar -->
+          <p>Chriva Mobile system<span class="jqm-version"></span></p>
+          <p>Copyright TESLA AI S.r.l</p>
+      </div><!-- /footer -->
+      <!-- /panel -->
+  
+  
+  </div>
+  
+  
+  
+  <!-- FINE PAGINA LISTA INTERVENTI  -->
+  
+  
+  <!-- INIZIO PAGINA LISTA CLIENTI  -->
+  
+  
+  <div data-role="page" id="listaclienti" class="jqm-demos jqm-home">
+  
+      <div data-role="header" class="jqm-header">
+          <h2><img src="_assets/img/chriva-logo.png" alt="jQuery Mobile"></h2>
+         
+      <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a></div><!-- /header -->
+  
+      <div role="main" class="ui-content jqm-content">
+  
+          <h1>CLIENTI </h1>
+  
+          
+  
+  
+  
+  
+  <div data-role="content">
+           <ul id="employeeList" data-role="listview"  data-filter="true"></ul>
+      </div>		
+      
+      
+      
+      
+      
+      
+    </div><!-- /content -->
+      
+      
+   
+      
+      
+      
+          <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+              <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+  <li data-filtertext="demos homepage" data-icon="home"><a href=".././">Home</a></li>
+   <li><a  href="#interventi">Interventi pianificati</a><span class="ui-li-count" id="count-intpianificati">0</span></li>
+           <li><a href="interventi.html">Interventi effettuati</a><span class="ui-li-count" id="count-inteffettuati">0</span></li>
+           <li ><a  href="#listaclienti">Clienti</a><span class="ui-li-count" id="count-clienti">0</span></li>
+          
+           
+           <li><a data-ajax="false" href="#manutenzione" >Manutenzione</a></li>
+           <li><a  href="syncro.html" >Sincro</a></li>
+  
+  
+               </ul>
+          </div><!-- /panel -->
+  
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      <!-- /navbar -->
+          <p>Chriva Mobile system<span class="jqm-version"></span></p>
+          <p>Copyright TESLA AI S.r.l</p>
+      </div><!-- /footer -->
+      <!-- /panel -->
+  
+  
+  </div>
+  
+  <!-- FINE PAGINA LISTA CLIENTI  -->
+  
+  
+  
+  
+  <!-- INIZIO PAGINA DETTAGLIO CLIENTI  -->
+  
+  <div data-role="page" id="clienti_dettaglio" class="jqm-demos jqm-home">
+  
+      <div data-role="header" class="jqm-header" data-add-back-btn="true">
+          <h2><img src="_assets/img/chriva-logo.png" alt="jQuery Mobile"></h2>
+         
+      <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a></div><!-- /header -->
+  
+      <div role="main" class="ui-content jqm-content">
+   <div class="jqm-block-content">
+          <h3 id='rag_sociale'>CLIENTI DETTAGLIO </h3>
+  
+          
+  
+  
+  
+  
+  <div data-role="content">
+           <ul id="dettaglio_cliente" data-role="listview" ></ul>
+      </div>		
+      
+      <a href="#" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-inline" data-rel="back"  >Indietro</a>
+      
+      <a href="#" onClick="insert_nuovo_modulo();"  class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all ui-btn-inline"  >Nuovo Prelievo per il cliente </a>
+     
+      </div>
+      
+      
+      
+    </div><!-- /content -->
+      
+      
+   
+      
+      
+      
+          <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+              <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+  <li data-filtertext="demos homepage" data-icon="home"><a href=".././">Home</a></li>
+   <li><a  href="#interventi">Interventi pianificati</a><span class="ui-li-count" id="count-intpianificati">0</span></li>
+           <li><a href="interventi.html">Interventi effettuati</a><span class="ui-li-count" id="count-inteffettuati">0</span></li>
+           <li ><a  href="#listaclienti">Clienti</a></li>
+          
+           
+           <li><a data-ajax="false" href="#manutenzione" >Manutenzione</a></li>
+           <li><a  href="syncro.html" >Sincro</a></li>
+  
+  
+               </ul>
+          </div><!-- /panel -->
+  
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      <!-- /navbar -->
+          <p>Chriva Mobile system<span class="jqm-version"></span></p>
+          <p>Copyright TESLA AI S.r.l</p>
+      </div><!-- /footer -->
+      <!-- /panel -->
+  
+  
+  </div>
+  
+  <!-- FINE PAGINA DETTAGLIO CLIENTI  -->
+  
+  
+  
+  
+      <!-- INIZIO PAGINA MANUTENZIONE  -->
+  <div data-role="page" id="manutenzione" class="jqm-demos jqm-home">
+  
+      <div data-role="header" class="jqm-header">
+          <h2><img src="_assets/img/chriva-logo.png" alt="jQuery Mobile"></h2>
+         
+          <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a>
+         
+         
+      </div><!-- /header -->
+  
+      <div role="main" class="ui-content jqm-content">
+  
+          <h1>MANUTENZIONE </h1>
+  
+          
+  
+  
+  
+  
+  <div data-role="content">
+  
+  <h2 id="ConnStatus">Stato Connessione</h2>
+           <a href="#" data-role="button" id="btn_sync" data-mini="true" data-icon="refresh" data-iconpos="bottom" class="show-page-loading-msg" >Sincronizza </a> 
+                 <a href="#" data-role="button" id="btn_del"  data-mini="true" data-icon="delete" data-iconpos="bottom">Cancella tutti i dati </a> 
+                 <hr/>
+                  <a href="#" data-role="button" id="btn_logout"  data-mini="true" data-icon="delete" data-iconpos="bottom">Logout </a>   
+                 
+                 
+              
+                 
+                 
+                 
+                 
+                 <label>Log:</label>
+                 <textarea name="log" id="log" cols="40" rows="6" style="min-height:100px;"></textarea>
+      </div>		
+      
+      
+      
+      
+      
+      
+    </div><!-- /content -->
+      
+      
+   
+      
+      
+      
+          <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+              <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+  <li data-filtertext="demos homepage" data-icon="home"><a href=".././">Home</a></li>
+   <li><a  href="#interventi">Interventi pianificati</a></li>
+           <li><a href="interventi.html">Interventi effettuati</a></li>
+           <li ><a  href="#listaclienti">Clienti</a></li>
+          
+           
+           <li><a data-ajax="false" href="#manutenzione" >Manutenzione</a></li>
+           <li><a  href="syncro.html" >Sincro</a></li>
+  
+  
+               </ul>
+          </div><!-- /panel -->
+  
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      <!-- /navbar -->
+          <p>Chriva Mobile system<span class="jqm-version"></span></p>
+          <p>Copyright TESLA AI S.r.l</p>
+      </div><!-- /footer -->
+      <!-- /panel -->
+  
+  
+  </div>
+  
+  
+    <!-- FINE PAGINA MANUTENZIONE  -->
+  
+  
+  
+  
+  <!-- INIZIO PAGINA MODULO ORDINE  -->
+  
+  <div data-role="page" id="modulo_ordine" class="jqm-demos jqm-home">
+  
+  
+  
+  
+  
+  <!-- PANNELLO SLIDE PER NUOVI PRELIEVI-->
+  <div data-role="panel" id="slide_nuovo_prelievo" data-position="right" data-display="overlay" data-theme="a" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-b ui-panel-animate ui-panel-open">
+
+        <div class="ui-panel-inner" >
+          <h3>Nuova riga prelievo</h3><p>
+        Prova:
+          <select name="IDProvaNL" id="IDProvaNL"></select>
+    Quantità :
+    <select name="qty" id="qty">
+      <option>--</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  
+    Unita Camp.:
+    <select name="UC" id="UC">
+      <option>--</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    
+      <input type="button" id="feedback_send" value="Inserisci"  data-inline="true"  onClick="save_nuovo_prova()"/>
+   
+    <!-- <a href="#"   onClick="save_nuovo_prova()" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-check ui-btn-icon-left ui-btn-inline">Inserisci</a>-->
+    <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Chiudi</a></p>
+        
+        
+         </div>
+
+	</div>
+ 
+ 
+
+     
+    
+    <div data-role="header" class="jqm-header">
+      <h2><img src="_assets/img/chriva-logo.png" alt="jQuery Mobile"></h2>
+     
+      <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a></div>
+    <!-- /header -->
+    <div role="main" class="ui-content jqm-content">
+      <h2 id="ragsoc">Modulo: </h2>
+     
+      
+      <div data-role="content">
+  <div data-role="collapsibleset" data-theme="a" data-content-theme="d">
+    <!--<div data-role="collapsible-set" data-theme="a" data-content-theme="d">  -->
+        
+        
+    <div data-role="collapsible" id="mymessages" data-collapsed="true" >
+       
+          <h3>Dati Generali Prelievo</h3>
+          
+
+      <div class="ui-grid-a">
+  
+  <div class="ui-field-contain">
+  <div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+      <label class="ui-controlgroup-label">Data e ora:</label>
+  
+      <input id="DataIntervento2"  type="text" value="" name="DataIntervento2"  >
+      </div>
+      <div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+       <label class="ui-controlgroup-label" >Sede Prelievo:</label><br/>
+       <div class="ui-select">
+     <select name="idAltra" id="idAltra" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" >
+      
+  </select>
+  </div> 
+      </div>
+      <div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+       <label class="ui-controlgroup-label">Presente:</label>
+      <input id="PresenzaDi" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" type="text"  value="" name="PresenzaDi" onBlur="update(this.value,'PresenzaDi');">  
+       <input id="idcliente"  type="hidden"  value="" name="idcliente">
+       <input id="idcal"  type="hidden"  value="" name="idcal">
+   </div>
+      </div>
+         </div>
+                  
+ 
+  
+        </div>
+        
+        
+        
+       <!--  SEZIONE PRELIEVI -->   
+        <div data-role="collapsible" id="prelievi_collapsible" data-collapsed="false" data-theme="a" data-content-theme="d">
+          <h3>Prelievi</h3>
+          <a href="#slide_nuovo_prelievo"  class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Nuovo Prelievo </a>
+                         
+           <p>
+           
+      
+      
+           <div id="box_prelievo"></div>  
+            
+          </p>
+        
+         
+        </div>
+       <!--  FINE SEZIONE PRELIEVI --> 
+      <!--  SEZIONE MATERIALE -->  
+<!--        <div data-role="collapsible" id="mymessages" data-collapsed="true" data-theme="a" data-content-theme="d">
+          <h3>Materiale</h3>
+          
+        <a href="ajax/new_materiale.html" data-rel="dialog" data-icon="plus" data-mini="true" data-role="button" data-inline="true" data-transition="slidedown">Nuovo Prelievo</a>      
+        
+        
+        <ul id="TaskList" data-role="listview" >
+       <li>
+      
+      
+      
+      
+        
+                  
+  </li>
+  </ul>
+  
+  
+        
+        </div>-->
+        
+           
+        
+        
+        
+       <!--  FINE SEZIONE MATERIALE --> 
+       
+      
+  <!--  SEZIONE NOTE -->
+  
+  <div data-role="collapsible" id="mymessages" data-collapsed="true" data-theme="a" data-content-theme="d">
+          <h3>Note</h3>
+          <p>
+          <textarea name="Note" id="Note" cols="50" rows="5" onBlur="update(this.value,'Note');"></textarea>
+          </p>
+     </div>
+     <!--  FINE SEZIONE NOTE -->
+     
+      <div id="display_firma">
+  
+          <img id="img_firma"/>
+          
+      </div>
+  
+  
+  
+    <div id="canvasContainer" width="100%" >
+      <canvas id="signature" height="200px" />
+      </div>
+        <a href="index.html" data-role="button"  onClick="update('','Firma_canc')" data-inline="true" data-icon="delete">Cancella</a>
+  <a href="#" data-role="button" onClick="update('','Firma')"  id="submit" data-inline="true" data-theme="a" data-icon="check" >Salva Firma</a> 
+  
+  <div id="feedback"></div>     
+              <div class="row">
+          <div class=span12></div>
+      </div>
+  
+  
+  </div>
+  
+    <a href="#" class="ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all ui-btn-inline"  id="btn_ChiudiModulo" onClick="update('','Firma');chiudi_modulo();" >Chiudi Intervento</a>
+      
+      <a href="#" onclick="canc_modulo();" id="btn_CancModulo"  class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow ui-corner-all ui-btn-inline"  >Cancella il Modulo </a>
+      
+
+  
+  
+  
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+  </div>
+    <!-- /content -->
+    <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+      <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+        <li data-filtertext="demos homepage" data-icon="home"><a href=".././">Home</a></li>
+        <li><a  href="#interventi">Interventi pianificati</a></li>
+        <li><a href="interventi.html">Interventi effettuati</a></li>
+        <li ><a  href="#listaclienti">Clienti</a></li>
+        <li><a data-ajax="false" href="#manutenzione" >Manutenzione</a></li>
+        <li><a  href="syncro.html" >Sincro</a></li>
+      </ul>
+    </div>
+    <!-- /panel -->
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      
+      
+      <p>Chriva Mobile system<span class="jqm-version"></span></p>
+      <p>Copyright TESLA AI S.r.l</p>
+    </div>
+    <!-- /footer -->
+    <!-- TODO: This should become an external panel so we can add input to markup (unique ID) -->
+    <!-- /panel -->
+  <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer"> </div>
+    <div role="main" class="ui-content jqm-content">
+      <div data-role="content"> </div>
+    </div>
+  </div>
+  
+  
+  <!-- FINE PAGINA MODULO ORDINE  -->
+  
+  
+  
+    <!-- INIZIO PAGINA DETTAGLIO PRELIEVI  -->
+  <!-- /page -->
+  <div data-role="page" id="dett_prelievi" class="jqm-demos jqm-home">
+  
+      <div data-role="header" class="jqm-header">
+          <h2><img src="_assets/img/chriva-logo.png" alt="jQuery Mobile"></h2>
+         
+      <a href="#" class="jqm-navmenu-link ui-btn ui-btn-icon-notext ui-corner-all ui-icon-bars ui-nodisc-icon ui-alt-icon ui-btn-left">Menu</a></div><!-- /header -->
+  
+  
+ 
+        
+      <div role="main" class="ui-content jqm-content" >
+  
+  
+
+        
+        
+          <h2 id="label_dett_prev">Dettaglio </h2>
+  
+          
+  
+  
+  
+  
+  <div data-role="content" style="background-color:#9C9" >
+     
+      <p style="width:90%; "">
+    <label for="IDTipoProdotto"><strong>Tipo Prodotto:</strong></label>
+ <select name="IDTipoProdotto" id="IDTipoProdotto" onchange="update_dett(this.value,'IDTipoProdotto');">
+   <option value="" >--seleziona--</option>
+ </select> 
+    
+
+    <label for="Note"><strong>Descrizione</strong>:</label>  
+    <textarea name="Note_dett" id="Note_dett" cols="50" rows="5"  onBlur="update_dett (this.value,'Note');" ></textarea>
+
+    <label for="Lotto"><strong>Lotto</strong>:</label>
+    <input type="text" name="Lotto" id="Lotto"  onBlur="update_dett(this.value,'Lotto');" >
+    <label for="TempC"><strong>T.C.:</strong></label>
+    <input type="text" name="TempC" id="TempC"  onBlur="update_dett(this.value,'TempC');" >
+    <label for="Conservabile"><strong>Conservabile</strong>:</label>
+    <input type="text" name="Conservabile_dett" id="Conservabile_dett"  onBlur="update_dett(this.value,'Conservabile');" >
+ 
+     <strong>
+     
+  
+     <label for="fullname"><strong>Stato di lavorazione:</strong></label>
+     </strong>
+    <select name="IdStadioLavorazione" id="IdStadioLavorazione" onchange="update_dett(this.value,'ARR_Stadio');">
+      <option value="" >--seleziona--</option>
+    </select>
+
+    
+    <label for="NoteSito"><strong>Sito di Campionamento:</strong></label>
+   
+    
+    <textarea name="NoteSito" id="NoteSito" cols="50" rows="5" onBlur="update_dett(this.value,'NoteSito');"></textarea>
+
+    <label for="IDSuperficie"><strong>Superficie:</strong></label>
+      <select name="IDSuperficie" id="IDSuperficie" onchange="update_dett(this.value,'IDSuperficie');" >
+       <option value="" >--seleziona--</option>
+      </select>    		
+      <input type="hidden" name="Finito" id="Finito">
+      </p>
+</div>
+
+
+<input type="button" data-icon="arrow-u-l" data-iconpos="top" onClick="chiudi_dett_riga();" value="Chiudi Riga">
+
+
+   <div data-role="navbar">
+            <ul>
+                <li><a href="#modulo_ordine" data-icon="check" data-iconpos="left">Modulo</a></li>
+              
+                <li><a href="#" data-icon="delete" onClick="canc_dett();" data-iconpos="right">Cancella Prelievo</a></li>
+            </ul>
+        </div><!-- /navbar -->
+      </div><!-- /content -->
+      
+      
+      
+      
+   
+      
+          <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+              <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+  <li data-filtertext="demos homepage" data-icon="home"><a href="#modulo_ordine">Torna al modulo</a></li>
+   
+  
+  
+               </ul>
+          </div><!-- /panel -->
+  
+  
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+      <!-- /navbar -->
+          <p>Chriva Mobile system<span class="jqm-version"></span></p>
+          <p>Copyright TESLA AI S.r.l</p>
+      </div><!-- /footer -->
+      <!-- /panel -->
+  
+  
+  </div>
+  
+  
+  
+  <!-- FINE PAGINA DETTAGLIO PRELIEVI  -->
+  
+  
+  
+    <script src="cordova.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/app_dao.js"></script>
+    <script src="js/CRUD.js"></script>
+    <script src="js/sync.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/employeedetails.js"></script>
+    <script src="js_firma/modernizr.custom.34982.js"></script>
+    <script src="js/jquery.datetimepicker.js"></script>
+
+    
+    <script>
+  
+  $( document ).on( "deviceready", function() {
+      // Make your jQuery Mobile framework configuration changes here!
+
+      $.mobile.allowCrossDomainPages = true;
+          $.support.cors = true;
+          $.mobile.phonegapNavigationEnabled = true;
+  });
+  
+    
+	
+ 
+  
+    </script>
+    
+    <!--<script src="js_firma/application.js"></script>-->
+    <script src="js_firma/signatureCapture.js"></script>
+  
+  
+  </body>
+  </html>
